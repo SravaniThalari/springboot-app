@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry = "126433396408.dkr.ecr.eu-north-1.amazonaws.com"
+        registry = "126433396408.dkr.ecr.eu-north-1.amazonaws.com.com"
     }
     
     stages {
@@ -29,7 +29,7 @@ pipeline {
         stage ("Push to ECR") {
             steps {
                 sh "aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 126433396408.dkr.ecr.eu-north-1.amazonaws.com"
-                sh "docker push 126433396408.dkr.ecr.eu-north-1.amazonaws.com/my-docker-repo:latest"
+                sh "docker push 126433396408.dkr.ecr.eu-north-1.amazonaws.com/my-ecr-repo:latest"
                 
             }
         }
